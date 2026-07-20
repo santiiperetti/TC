@@ -1,0 +1,14 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno y secretos (¡CRÍTICO!)
+.env
+
+# Logs y debugs
+logs
+*.log
+npm-debug.log*
+
+# Archivos propios del sistema operativo (Windows/Mac)
+.DS_Store
+Thumbs.db
