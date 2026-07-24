@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import Home from './pages/Home.jsx';
+import PilotosPage from './pages/Pilotos.jsx';
 
 function PlaceholderPage({ title }) {
   return (
@@ -36,7 +37,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/pilotos" element={<PlaceholderPage title="Pilotos" />} />
+          <Route path="/pilotos" element={<PilotosPage />} />
           <Route path="/ganadores" element={<PlaceholderPage title="Ganadores por año" />} />
           <Route path="/resultados" element={<PlaceholderPage title="Resultados" />} />
         </Routes>

@@ -12,7 +12,7 @@ function Home() {
         <div className="home-text">
           <h2>Bienvenido a Stats Turismo Carretera</h2>
           <p>
-            Bienvenido a la base de datos del Turismo Carretera. Explorá estadísticas, resultados históricos y los perfiles de todos los pilotos de la máxima.
+            La base de datos de la historia del Turismo Carretera. Explorá estadísticas, resultados históricos y los perfiles de todos los pilotos de la máxima.
           </p>
         </div>
       </div>

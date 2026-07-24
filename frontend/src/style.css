@@ -441,6 +441,87 @@ main.home-panel h2 {
   max-width: 720px;
 }
 
+.page-card {
+  background: linear-gradient(180deg, #ffffff 0%, #fff6f4 100%);
+  border: 1px solid rgba(199, 0, 0, 0.16);
+  border-radius: 2rem;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.searchbar-wrapper {
+  margin-bottom: 1.35rem;
+  display: flex;
+  justify-content: center;
+}
+
+.pilotos-search {
+  width: 100%;
+  max-width: 480px;
+  padding: 0.85rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(199, 0, 0, 0.3);
+  font-size: 0.98rem;
+  outline: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+}
+
+.pilotos-search:focus {
+  border-color: #c70000;
+  box-shadow: 0 0 0 3px rgba(199, 0, 0, 0.12);
+}
+
+.empty-results {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.pilotos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
+  gap: 1.25rem;
+  justify-content: start;
+  align-content: start;
+}
+
+.piloto-card {
+  width: 220px;
+  background: #fff;
+  border: 1px solid rgba(199, 0, 0, 0.14);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.piloto-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+
+.piloto-info {
+  padding: 1rem;
+}
+
+.piloto-info h3,
+.piloto-info p {
+  margin: 0;
+}
+
+.piloto-info h3 {
+  font-size: 1.05rem;
+  color: #111;
+  margin-bottom: 0.3rem;
+}
+
+.piloto-info p {
+  color: var(--text-muted);
+}
+
 @media (max-width: 860px) {
   .home-grid {
     grid-template-columns: 1fr;
