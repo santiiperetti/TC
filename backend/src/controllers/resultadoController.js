@@ -11,6 +11,7 @@ async function getGanadoresPorAnio(req, res) {
     const resultados = await sequelize.query(
       `SELECT
          c.nro_carrera_temporada AS nro_carrera,
+         p.id_piloto,
          CONCAT(p.apellido, ', ', p.nombre) AS piloto,
          ad.nombre AS autodromo,
          u.nombre AS ubicacion_autodromo

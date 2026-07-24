@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getPilotos, searchPilotos } from '../api/tcApi.js';
 
 function PilotosPage() {
   const [allPilotos, setAllPilotos] = useState([]);
@@ -13,13 +15,7 @@ function PilotosPage() {
         setLoading(true);
         setError('');
 
-        const respuesta = await fetch('http://localhost:3000/api/pilotos');
-
-        if (!respuesta.ok) {
-          throw new Error(`HTTP ${respuesta.status}`);
-        }
-
-        const data = await respuesta.json();
+        const { data } = await getPilotos();
         const lista = Array.isArray(data) ? data : [];
         setAllPilotos(lista);
         setPilotos(lista);
@@ -45,15 +41,7 @@ function PilotosPage() {
 
       try {
         setError('');
-        const respuesta = await fetch(
-          `http://localhost:3000/api/pilotos/buscar?texto=${encodeURIComponent(texto)}`
-        );
-
-        if (!respuesta.ok) {
-          throw new Error(`HTTP ${respuesta.status}`);
-        }
-
-        const data = await respuesta.json();
+        const { data } = await searchPilotos(texto);
         setPilotos(Array.isArray(data) ? data : []);
       } catch (err) {
         console.error(err);
@@ -89,7 +77,11 @@ function PilotosPage() {
       ) : (
         <div className="pilotos-grid">
           {pilotos.map((piloto) => (
-            <article key={piloto.id_piloto} className="piloto-card">
+            <Link
+              key={piloto.id_piloto}
+              to={`/pilotos/${piloto.id_piloto}`}
+              className="piloto-card"
+            >
               <img
                 src={piloto.url_foto || 'https://via.placeholder.com/300x260?text=Sin+foto'}
                 alt={`${piloto.nombre} ${piloto.apellido}`}
@@ -99,7 +91,7 @@ function PilotosPage() {
                 <h3>{piloto.nombre}</h3>
                 <p>{piloto.apellido}</p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       )}

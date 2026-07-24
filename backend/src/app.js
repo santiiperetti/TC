@@ -5,6 +5,7 @@ const pilotosRoutes = require('./routes/pilotosRoutes.js');
 const autodromosRoutes = require('./routes/autodromosRoutes.js');
 const resultadosRoutes = require('./routes/resultadosRoutes.js');
 const { searchPilotos } = require('./controllers/pilotoController.js');
+const errorHandler = require('./middleware/errorHandler.js');
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -28,6 +29,8 @@ app.use('/api/resultados', resultadosRoutes);
 app.get('/', (req, res) => {
   res.send('<h1>API TC Stats - Funcionando 🏎️💨</h1>');
 });
+
+app.use(errorHandler);
 
 async function start() {
   try {
